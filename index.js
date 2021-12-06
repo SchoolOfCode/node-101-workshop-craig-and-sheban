@@ -15,12 +15,21 @@ let myCollection = [
       whatILike: "Eat. Sleep. Code. Repeat :)"
     }
   ];
+function describeItem(item){
+    if(item.count === 1){
+        console.log(`I have a ${item.name}. Here is what I like about it: ${item.whatILike}`);
+    }else{
+        console.log(`I have some ${item.name}'s. Here is what I like about them: ${item.whatILike}.`);
+    }
+}
 
-  function describeItem(item, count){
-      
-      console.log(`You have ${count} ${item}`);
+  myCollection.forEach(describeItem);
 
-  }
+//   describeItem(myCollection[1].name, myCollection[1].count, myCollection[1].whatILike);
+
+
+
+// describeItem(myCollection[1]);
 
 // 2c. Create a function called `describeItem`, which should take in an item as a parameter (the argument handed to this function would be an item from our collection). The function should `console.log` a message according to how many of the item you have.
 
@@ -41,9 +50,16 @@ let myCollection = [
 //using a for...each loop with a for...in
 
 
-myCollection.forEach(item => {
-    for(let key in item) {
-        console.log(`${key}: ${item[key]}`);
-    }
-});
 
+
+// myCollection.forEach(item => {
+//     for(let key in item) {
+//         describeItem(key, item[key]);
+//     } 
+// });
+
+
+
+
+// "I have a School of Code mug. Here's what I like about it: It has my cute pixel character on it!"
+// "I have `count` `name`s. Here's what I like about them: `whatILike`".

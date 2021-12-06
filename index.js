@@ -1,31 +1,36 @@
-let myCollection = [
-    {
-      name: "School of Code mug",
-      count: 1,
-      whatILike: "It has my cute pixel character on it!"
-    },
-    {
-      name: "School of Code hat",
-      count: 2,
-      whatILike: "An often overlooked fashion accessory"
-    },
-    {
-      name: "School of Code pillow",
-      count: 1,
-      whatILike: "Eat. Sleep. Code. Repeat :)"
-    }
-  ];
+import {myCollection} from './collection.js';
+import chalk from 'chalk';
+
+// console.log(chalk.blue('Hello world!'));
+
 function describeItem(item){
     if(item.count === 1){
-        console.log(`I have a ${item.name}. Here is what I like about it: ${item.whatILike}`);
+        console.log(`I have a ${chalk.cyan(item.name)}. Here is what I like about it: ${chalk.green(item.whatILike)}`);
     }else{
-        console.log(`I have some ${item.name}'s. Here is what I like about them: ${item.whatILike}.`);
+        console.log(`I have some ${chalk.cyan(item.name)}'` + chalk.yellow(`s`) + `. ` +  chalk.grey(`Here`) + ` is what I like about them: ${chalk.green(item.whatILike)}.`);
     }
 }
 
-  myCollection.forEach(describeItem);
+function someCheck(item) {
+  const word = "cute";
+  // check if the value of "cute" is within the key "whatILike"
+  if(item.whatILike.includes(word)) {
+    console.log(chalk.magenta(`I have a ${item.name}. Here is what I like about it: ${item.whatILike}`));
+  }else {
+    console.log(`I have a ${item.name}. Here is what I like about it: ${item.whatILike}`);
+  }
+  // if cute is in whatilike
+    //change the colour of string to mangeta using chalk modules
+  // else 
+    //keep string the same colour
+}
+
+myCollection.forEach(describeItem);
+// call someCheck using forEach method on "mycollection"
+// myCollection.forEach(someCheck);
 
 //   describeItem(myCollection[1].name, myCollection[1].count, myCollection[1].whatILike);
+
 
 
 
